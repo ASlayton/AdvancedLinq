@@ -29,7 +29,7 @@ namespace LINQ_Practice
         [TestMethod]
         public void GetAllCohortsWithZacharyZohanAsPrimaryOrJuniorInstructor()
         {
-            var ActualCohorts = PracticeData/*FILL IN LINQ EXPRESSION*/.ToList();
+            var ActualCohorts = PracticeData.Where(cohort => cohort.PrimaryInstructor.LastName == "Zohan" || cohort.JuniorInstructors.Any(instructor => instructor.LastName == "Zohan")).ToList();
             CollectionAssert.AreEqual(ActualCohorts, new List<Cohort> { CohortBuilder.Cohort2, CohortBuilder.Cohort3 });
         }
 
