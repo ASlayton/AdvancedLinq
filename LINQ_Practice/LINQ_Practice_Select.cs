@@ -41,7 +41,7 @@ namespace LINQ_Practice
         [TestMethod]
         public void GetAllPrimaryInstructorsInAllCohorts()
         {
-            var expected = PracticeData.Select(cohort => cohort.PrimaryInstructor)/*FILL IN LINQ EXPRESSION*/.ToList();
+            var expected = PracticeData.Select(cohort => cohort.PrimaryInstructor).ToList();
             CollectionAssert.AreEqual(expected, new List<Instructor> { CohortBuilder.Instructor2, CohortBuilder.Instructor6, CohortBuilder.Instructor3, CohortBuilder.Instructor1});
         }
         
@@ -55,14 +55,14 @@ namespace LINQ_Practice
         [TestMethod]
         public void GetAllPrimaryInstructorFirstNames()
         {
-            var expected = PracticeData.Select(cohort => cohort.PrimaryInstructor.FirstName)/*FILL IN LINQ EXPRESSION*/.ToList();
+            var expected = PracticeData.Select(cohort => cohort.PrimaryInstructor.FirstName).ToList();
             CollectionAssert.AreEqual(expected, new List<string> { "Jurnell", "Zachary", "Blaise", "Kate" });
         }
         
         [TestMethod]
         public void GetAllCohortNames()
         {
-            var expected = PracticeData.Select(cohort => cohort.Name)/*FILL IN LINQ EXPRESSION*/.ToList();
+            var expected = PracticeData.Select(cohort => cohort.Name).ToList();
             CollectionAssert.AreEqual(expected, new List<string> { "Evening Five", "Cohort of the Future", "Evening Ninja Warriors", "Day Backgammon Geeks" });
         }
 
