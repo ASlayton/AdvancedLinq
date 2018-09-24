@@ -38,7 +38,7 @@ namespace LINQ_Practice
         [TestMethod]
         public void GetFirstCohortWherePrimaryInstructorIsKate()
         {
-            var ActualCohort = PracticeData.First(cohort => cohort.PrimaryInstructor.FirstName == "Kate")/*FILL IN LINQ EXPRESSION*/;
+            var ActualCohort = PracticeData.First(cohort => cohort.PrimaryInstructor.FirstName == "Kate");
             Assert.AreEqual(ActualCohort, CohortBuilder.Cohort4);
         }
 
@@ -60,7 +60,7 @@ namespace LINQ_Practice
         [TestMethod]
         public void GetFirstCohortWithInstructorNamedZeldaOrNull()
         {
-            var ActualCohort = PracticeData/*FILL IN LINQ EXPRESSION*/;
+            var ActualCohort = PracticeData.FirstOrDefault(cohort => cohort.PrimaryInstructor.FirstName == "Zelda");
             Assert.IsNull(ActualCohort);
         }
 
@@ -68,13 +68,13 @@ namespace LINQ_Practice
         [ExpectedException(typeof(System.InvalidOperationException))]
         public void GetFirstCohortThatIsBothNotActiveAndNotFullTimeOrThrowException()
         {
-            var shouldThrowException = PracticeData/*FILL IN LINQ EXPRESSION*/;
+            var shouldThrowException = PracticeData.First(cohort => !cohort.Active && !cohort.FullTime)/*FILL IN LINQ EXPRESSION*/;
         }
 
         [TestMethod]
         public void GetFirstCohortWith2JuniorInstructors()
         {
-            var ActualCohort = PracticeData/*FILL IN LINQ EXPRESSION*/;
+            var ActualCohort = PracticeData.First(cohort => cohort.JuniorInstructors.Count ==2);
             Assert.AreEqual(ActualCohort, CohortBuilder.Cohort1);
         }
 
